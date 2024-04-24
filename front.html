@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vector Drawing</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.16/paper-full.min.js"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 256px;
+      height: 256px;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <p id="prediction">prediction</p>
+  <canvas id="drawingCanvas" resize></canvas>
+  <button onclick="saveStrokes()">Save Strokes</button>
+
+  <script>
+    // Initialize Paper.js
+    paper.setup(document.getElementById('drawingCanvas'));
+
+    // Define drawing tool
+    let tool = new paper.Tool();
+    let paths = []; // Array to store paths (strokes)
+
+    // Define mouse down event
+    tool.onMouseDown = function(event) {
+      let path = new paper.Path();
+      path.strokeColor = 'black'; // Set stroke color
+      path.strokeWidth = 2; // Set stroke width
+      path.add(event.point);
+      paths.push(path); // Add path to array
+    }
+
+    // Define mouse drag event
+    tool.onMouseDrag = function(event) {
+      paths[paths.length - 1].add(event.point); // Add point to current path
+    }
+
+    // Define save function
+    async function saveStrokes() {
+      let xCoords = [];
+      let yCoords = [];
+      for (let i = 0; i < paths.length; i++) {
+        for (let j = 0; j < paths[i].segments.length; j++) {
+          let point = paths[i].segments[j].point;
+          xCoords.push(point.x);
+          yCoords.push(point.y);
+        }
+      }
+      let strokes = [xCoords, yCoords];
+      console.log(strokes)
+      const response = await fetch('http://localhost:3000/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ data: [strokes] })
+      });
+      
+      const data = await response.json();
+
+      document.getElementById('prediction').innerText = `Prediction: ${data.prediction}`;
+
+    }
+  </script>
+</body>
+</html>
