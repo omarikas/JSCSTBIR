@@ -2,7 +2,7 @@ const tf = require('@tensorflow/tfjs-node');
 const fs = require('fs');
 const path = require('path');
 const Jimp=require('jimp')
-async function loadModel(modelPath) {
+ async function loadModel(modelPath) {
     try {
         const model = await tf.loadLayersModel(`file://./${modelPath}`);
         return model;
@@ -12,7 +12,7 @@ async function loadModel(modelPath) {
     }
 }
 
-async function predictImageClass(model, imagePath) {
+ async function predictImageClass(model, imagePath) {
     try {
         // Read and decode the image
         
@@ -33,13 +33,15 @@ async function predictImageClass(model, imagePath) {
 counter+=predictionTime
 console.log(predictionTime)
 predictions.print()
+    var classes=["castle","camel","hot air ballon"]
         // Extract the class probabilities from predictions
         const probabilities = predictions.arraySync()[0];
 
         // Get the predicted class (index with the highest probability)
         const predictedClass = probabilities.indexOf(Math.max(...probabilities));
 
-        return predictedClass;
+    console.log(classes[predictedClass])
+        return classes[predictedClass];
     } catch (error) {
         console.error('Error predicting image class:', error);
         throw error;
@@ -73,4 +75,4 @@ for(var i=1;i<2000;i++){
 }
 console .log(`final count ${counter}`)
 }
-main()
+module.exports={loadModel,predictImageClass}

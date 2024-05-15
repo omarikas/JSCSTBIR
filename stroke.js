@@ -2,7 +2,7 @@ const fs = require('fs');
 const readline = require('readline');
 const { createCanvas, Image } = require('canvas');
 // Draw your connected points
-function drawPoints(points, minX, minY, maxX, maxY, curr) {
+async function drawPoints(points, minX, minY, maxX, maxY, curr) {
     // Set canvas size to 256 by 256
     const canvasWidth = 256;
     const canvasHeight = 256;
@@ -24,11 +24,11 @@ function drawPoints(points, minX, minY, maxX, maxY, curr) {
 
     // Draw lines between connected points
     points.forEach(connection => {
-        for (let i = 0; i < connection[0].length - 1; i++) {
-            const startX = offsetX + (connection[0][i] - minX) * scale;
-            const startY = offsetY + (connection[1][i] - minY) * scale;
-            const endX = offsetX + (connection[0][i + 1] - minX) * scale;
-            const endY = offsetY + (connection[1][i + 1] - minY) * scale;
+        for (let i = 0; i < connection.length - 1; i++) {
+            const startX = offsetX + (connection[i][0] - minX) * scale;
+            const startY = offsetY + (connection[i][1] - minY) * scale;
+            const endX = offsetX + (connection[i+1][0] - minX) * scale;
+            const endY = offsetY + (connection[i+1][1] - minY) * scale;
             
             context.beginPath();
             context.moveTo(startX, startY);
@@ -38,9 +38,9 @@ function drawPoints(points, minX, minY, maxX, maxY, curr) {
     });
 
     // Convert canvas to PNG and save the file
-    const out = fs.createWriteStream(__dirname + `/eval/plane/plane${curr}.png`);
+    const out = fs.createWriteStream( `test.png`);
     const stream = canvas.createPNGStream();
-    stream.pipe(out);
+   stream.pipe(out);
     out.on('finish', () => console.log(`The PNG file for tower${curr} was created.`));
 }
 
@@ -90,7 +90,7 @@ async function parseNDJSON(filename) {
 }
 
 async function main() {
-    await parseNDJSON("D:/full_raw_airplane.ndjson");
+  await parseNDJSON("./data/sketches/full_simplified_hot air balloon.ndjson");
 }
-
-main();
+module.exports={drawPoints}
+//main();

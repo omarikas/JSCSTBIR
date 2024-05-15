@@ -3,25 +3,25 @@ const fs = require('fs');
 const Jimp = require('jimp');
 
 const IMAGE_WIDTH = 256;
+
 const IMAGE_HEIGHT = 256;
 const NUM_CLASSES = 3
 
-const catsDir = './train/tower';
-const dogsDir = './train/clock';
+const catsDir = './data/sketchespng/castle/';
+const dogsDir = './data/sketchespng/camel/';
 
-const bird = './train/plane';
+const bird = './data/sketchespng/hotairballon/';
 async function loadAndPreprocessImages(directory) {
     const files = fs.readdirSync(directory);
     const images = [];
     for (const file of files) {
       try{
-        if(images.length>500){
-            return images
-        }
-        const filePath = `${directory}/${file}`;
+       const filePath = `${directory}/${file}`;
         const image = await Jimp.read(filePath);
-        image.resize(IMAGE_WIDTH, IMAGE_HEIGHT);
-        console.log(file)
+        console.log(images.length)
+      if(images.length==1000){
+        return images;
+      }
 
         // Convert image data to buffer
         const buffer = await image.getBufferAsync(Jimp.MIME_PNG);
@@ -85,7 +85,7 @@ async function main() {
     });
 
     const BATCH_SIZE = 32;
-    const NUM_EPOCHS = 2;
+    const NUM_EPOCHS = 3;
 
     await model.fit(tf.stack(images), labels, {
         batchSize: BATCH_SIZE,

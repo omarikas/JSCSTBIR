@@ -25,7 +25,7 @@
   <p id="prediction">prediction</p>
   <canvas id="drawingCanvas" resize></canvas>
   <button onclick="saveStrokes()">Save Strokes</button>
-
+<input type="" id="query" name="" value="">
   <script>
     // Initialize Paper.js
     paper.setup(document.getElementById('drawingCanvas'));
@@ -66,12 +66,12 @@
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ data: [strokes] })
+        body: JSON.stringify({ data: [strokes],query:document.getElementById("query").value })
       });
       
       const data = await response.json();
 
-      document.getElementById('prediction').innerText = `Prediction: ${data.prediction}`;
+      document.getElementById('prediction').innerText = `Prediction: ${JSON.stringify(data)}`;
 
     }
   </script>

@@ -1,157 +1,52 @@
-// server.js
-
-import express from 'express';
-import * as tf from "@tensorflow/tfjs-node"
-
-import path from 'path';
-import * as fs from 'fs';
-import { createCanvas } from 'canvas';
-import { ImageData } from 'canvas';
+import {query,loadModel2} from "./vector.mjs";
+import { loadModel, predictImageClass } from "./predict.js";
+import strokes from "./stroke.js";
+import express from "express";
 import cors from "cors";
-import sharp from 'sharp';
-import Jimp from 'jimp';
+import path from "path"
 const app = express();
 const port = 3000;
-
+const model = loadModel("./model/model.json");
+const coco = loadModel2();
 app.use(express.json());
-app.use(cors()); 
-app.post('/predict', async (req, res) => {
-  
-    const svgPathData = req.body.data
-  drawPoints(svgPathData,0,0,256,256);
-// Draw your connected points
-function drawPoints(points, minX, minY, maxX, maxY,curr) {
-    const aspectRatio = (maxX - minX) / (maxY - minY);
-    const maxWidth = 256;
-    const maxHeight = 256;
+app.use(cors());
+app.post("/predict", async (req, res) => {
+console.log("h")
+  const svgPathData = req.body.drawing;
+  var text = req.body.word;
+    var minX = Infinity;
+    var minY = Infinity;
+    var maxX = -Infinity;
+    var maxY = -Infinity;
 
-    let canvasWidth, canvasHeight;
-    if (aspectRatio > 1) {
-        canvasWidth = maxWidth;
-        canvasHeight = maxWidth / aspectRatio;
-    } else {
-        canvasWidth = maxHeight * aspectRatio;
-        canvasHeight = maxHeight;
+    svgPathData.forEach((arr) => {
+    arr.forEach(element => {
+         minX = Math.min(minX, element[0]);
+        maxX = Math.max(maxX, element[0]);
+        minY = Math.min(minY, element[1]);
+        maxY = Math.max(maxY, 
+      element[0]);
+      
+    });  
+   });
+  console.log(minX)
+
+    strokes.drawPoints(svgPathData, minX, minY, maxX, maxY, "test");
+ 
+  var final;
+  while(true){
+    try {
+       final= text.replace(`[sketch]`, 
+ (await predictImageClass(await model, `./test.png`)))
+break; 
+    } catch (error) {
+      console.log(error)
     }
 
-    const canvas = createCanvas(canvasWidth, canvasHeight);
-    const context = canvas.getContext('2d');
-context.lineWidth=4
-context.strokeStyle="blue"
-    // Draw lines between connected points
-    points.forEach(connection => {
-        for (let i = 0; i < connection[0].length - 1; i++) {
-            const startX = (connection[0][i] - minX) * (canvasWidth / (maxX - minX));
-            const startY = (connection[1][i] - minY) * (canvasHeight / (maxY - minY));
-            const endX = (connection[0][i + 1] - minX) * (canvasWidth / (maxX - minX));
-            const endY = (connection[1][i + 1] - minY) * (canvasHeight / (maxY - minY));
-            context.beginPath();
-            context.moveTo(startX, startY);
-            context.lineTo(endX, endY);
-            context.stroke();
-        }
-    });
+  }
+console.log(final) 
 
-    // Convert canvas to PNG
-    const out = fs.createWriteStream( "C:/Users/omarr/OneDrive/Desktop/thesis"+'/test.png');
-    const stream = canvas.createPNGStream();
-    stream.pipe(out);
-    out.on('finish', () =>{
-        
-        async function loadModel(modelPath) {
-            try {
-                const model = await tf.loadLayersModel(`file://./${modelPath}`);
-                return model;
-            } catch (error) {
-                console.error('Error loading the model:', error);
-                throw error;
-            }
-        }
-        
-        async function predictImageClass(model, imagePath) {
-            try {
-                // Read and decode the image
-                
-        const image = await Jimp.read(imagePath);
-        image.resize(256, 256);
-
-        // Convert image data to buffer
-        const buffer = await image.getBufferAsync(Jimp.MIME_PNG);
-
-        // Convert buffer to tensor and normalize pixel values
-        const normalizedImage = tf.node.decodeImage(buffer).div(255.0).expandDims(0);
-        // Make predictions
-       
-                const predictions = await model.predict(normalizedImage);
-        predictions.print()
-                // Extract the class probabilities from predictions
-                const probabilities = predictions.arraySync()[0];
-        
-                // Get the predicted class (index with the highest probability)
-                const predictedClass = probabilities.indexOf(Math.max(...probabilities));
-        
-                return predictedClass;
-            } catch (error) {
-                console.error('Error predicting image class:', error);
-                throw error;
-            }
-        }
-        
-        async function testModelOnImage(modelPath, imagePath) {
-            try {
-                // Load the saved model
-                const model = await loadModel(modelPath);
-        
-                // Predict the class of the image
-                const predictedClass = await predictImageClass(model, imagePath);
-        res.send({prediction:predictedClass})
-                console.log('Predicted class:', predictedClass);
-            } catch (error) {
-                console.error('Error testing model on image:', error);
-            }
-        }
-        
-        // Specify the path to the saved model and the image you want to test
-        const modelPath = './model/model.json'; // Change this to the path of your saved model
-        const imagePath = './test.png'; // Change this to the path of your test image
-        
-        // Test the model on the specified image
-        testModelOnImage(modelPath, imagePath);
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    });
-}
-
-
-
-
+  res.sendFile(  "/home/omarikahw/Documents/GitHub/JSCSTBIR/data/images/"+(await query(await coco,final)).image);
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
-
-
-
-
-
-
-
+app.listen(port);
