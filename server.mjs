@@ -32,8 +32,8 @@ app.use(cors({
 
 app.post("/predict", async (req, res) => {
 console.log("h")
-  const svgPathData = req.body.drawing;
-  var text = req.body.word;
+  const svgPathData = req.drawing;
+  var text = req.word;
     var minX = Infinity;
     var minY = Infinity;
     var maxX = -Infinity;
