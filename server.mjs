@@ -13,14 +13,19 @@ const __filename = fileURLToPath(import.meta.url);
 
 // Get the directory name of the current module
 const __dirname = dirname(__filename);
+const corsOptions = {
+  origin: 'https://ngc4c1db-5500.uks1.devtunnels.ms/base.html', // replace with your front-end URL
+  optionsSuccessStatus: 200 // for legacy browser support
+};
 
+app.use(cors(corsOptions));
 console.log(__dirname);
 const app = express();
 const port = process.env.PORT ||3000;
 const model = loadModel("./model/model.json");
 const coco = loadModel2();
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.post("/predict", async (req, res) => {
 console.log("h")
   const svgPathData = req.body.drawing;
