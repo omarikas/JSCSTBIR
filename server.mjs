@@ -14,7 +14,7 @@ const __filename = fileURLToPath(import.meta.url);
 // Get the directory name of the current module
 const __dirname = dirname(__filename);
 const corsOptions = {
-  origin: 'https://ngc4c1db-5500.uks1.devtunnels.ms/base.html', // replace with your front-end URL
+  origin: 'https://ngc4c1db-5500.uks1.devtunnels.ms', // replace with your front-end URL
   optionsSuccessStatus: 200 // for legacy browser support
 };
 
