@@ -42,19 +42,11 @@ console.log("h")
    });
   console.log(minX)
 
-    strokes.drawPoints(svgPathData, minX, minY, maxX, maxY, "test");
+   var png =strokes.drawPoints(svgPathData, minX, minY, maxX, maxY, "test");
  
-  var final;
-  while(true){
-    try {
-       final= text.replace(`[sketch]`, 
- (await predictImageClass(await model, `./test.png`)))
-break; 
-    } catch (error) {
-      console.log(error)
-    }
-
-  }
+  var final
+  final= text.replace(`[sketch]`, 
+ (await predictImageClass(await model,png.toBuffer() )))
 console.log(final) 
 
   res.sendFile( __dirname +"/data/images/images//"+(await query(await coco,final)).image);

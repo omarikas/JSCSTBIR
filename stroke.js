@@ -40,8 +40,10 @@ function drawPoints(points, minX, minY, maxX, maxY, curr) {
     // Convert canvas to PNG and save the file
     const out = fs.createWriteStream(__dirname + `/test.png`);
     const stream = canvas.createPNGStream();
-    stream.pipe(out);
-    out.on('finish', () => console.log(`The PNG file for tower${curr} was created.`));
+  //  stream.pipe(out);
+   //: out.on('finish', () => console.log(`The PNG file for tower${curr} was created.`));
+
+return canvas;
 }
 
 

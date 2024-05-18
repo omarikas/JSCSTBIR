@@ -18,7 +18,7 @@ export async function loadModel2() {
 }
 async function main(sentence, j) {
   console.log(sentence.length);
-  const index = new LocalIndex(path.join(__dirname, "..", "index"));
+  const index = new LocalIndex(path.join(__dirname, ".", "index"));
   if (!(await index.isIndexCreated())) {
     await index.createIndex();
   }
@@ -57,7 +57,7 @@ fs.readFile('./data/dataset/CSTBIR_dataset.json', 'utf8', (err, data) => {
 export  async function query(model, text) {
   const vector = (await (await model.embed(text)).array())[0];
 
-  const index = new LocalIndex(path.join(__dirname, "..", "index"));
+  const index = new LocalIndex(path.join(__dirname, ".", "index"));
 
   const results = await index.queryItems(vector, 2);
   if (results.length > 0) {
