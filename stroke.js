@@ -2,7 +2,7 @@ const fs = require('fs');
 const readline = require('readline');
 const { createCanvas, Image } = require('canvas');
 // Draw your connected points
-async function drawPoints(points, minX, minY, maxX, maxY, curr) {
+function drawPoints(points, minX, minY, maxX, maxY, curr) {
     // Set canvas size to 256 by 256
     const canvasWidth = 256;
     const canvasHeight = 256;
@@ -38,9 +38,9 @@ async function drawPoints(points, minX, minY, maxX, maxY, curr) {
     });
 
     // Convert canvas to PNG and save the file
-    const out = fs.createWriteStream( `test.png`);
+    const out = fs.createWriteStream(__dirname + `/test.png`);
     const stream = canvas.createPNGStream();
-   stream.pipe(out);
+    stream.pipe(out);
     out.on('finish', () => console.log(`The PNG file for tower${curr} was created.`));
 }
 
@@ -58,7 +58,7 @@ async function parseNDJSON(filename) {
 
         for await (const line of rl) {
             curr++;
-            if (curr == 2000) {
+            if (curr == 10000) {
                 break;
             }
 
@@ -90,7 +90,7 @@ async function parseNDJSON(filename) {
 }
 
 async function main() {
-  await parseNDJSON("./data/sketches/full_simplified_hot air balloon.ndjson");
+    await parseNDJSON("./full_simplified_beach.ndjson");
 }
 module.exports={drawPoints}
 //main();

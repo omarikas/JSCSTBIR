@@ -46,7 +46,7 @@ break;
   }
 console.log(final) 
 
-  res.sendFile(  "/home/omarikahw/Documents/GitHub/JSCSTBIR/data/images/"+(await query(await coco,final)).image);
+  res.sendFile(  "/home/omarikahw/Documents/GitHub/JSCSTBIR/data/images/images//"+(await query(await coco,final)).image);
 });
 
 app.listen(port);

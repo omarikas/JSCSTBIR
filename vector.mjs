@@ -25,7 +25,7 @@ async function main(sentence, j) {
   const model = await loadModel2();
   var arr = [];
 
-  for (var i = j; i < sentence.length; i++) {
+  for (var i = 0; i < sentence.length; i++) {
     const element = sentence[i];
     console.log(i);
     arr.push(element.text.replace("[sketch]", element.label));
@@ -38,12 +38,22 @@ async function main(sentence, j) {
     await index.insertItem({
       vector: embeddings[i],
       metadata: {
-        data: sentences[j + i]      },
+        data: sentence[ i]      },
     });
   }
 }
-
-//main();
+fs.readFile('./data/dataset/CSTBIR_dataset.json', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+    return;
+  }
+  try {
+    const jsonData = JSON.parse(data);
+//   main(jsonData)
+  } catch (err) {
+    console.error('Error parsing JSON:', err);
+  }
+});
 export  async function query(model, text) {
   const vector = (await (await model.embed(text)).array())[0];
 

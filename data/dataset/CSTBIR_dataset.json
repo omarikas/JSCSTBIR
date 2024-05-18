@@ -1,0 +1,477 @@
+[
+    {
+        "sample_num": "0",
+        "text": "[sketch] sitting infront of the pyramids",
+        "image": "15.jpeg",
+        "label": "camel",
+        "sketch": "camel_0.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "1",
+        "text": "[sketch] looking at the pyramids",
+        "image": "17.jpeg",
+        "label": "camel",
+        "sketch": "camel_1.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "2",
+        "text": "night lights on a [sketch]",
+        "image": "25.jpeg",
+        "label": "castle",
+        "sketch": "castle_605.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "3",
+        "text": "[sketch] in the middle of the occean",
+        "image": "31.jpeg",
+        "label": "castle",
+        "sketch": "castle_606.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "4",
+        "text": "luxor [sketch] carriage trip",
+        "image": "22.jpeg",
+        "label": "horse",
+        "sketch": "horse_0.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "5",
+        "text": "horse riding infront of [sketch]",
+        "image": "23.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_4.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "6",
+        "text": "[sketch] flying over desert",
+        "image": "4.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_500.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "7",
+        "text": "[sketch] start flying",
+        "image": "7.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_1.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "8",
+        "text": "bunch of people riding [sketch]",
+        "image": "14.jpeg",
+        "label": "came;",
+        "sketch": "camel_10.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "9",
+        "text": "man riding [sketch] in the middle of the desert",
+        "image": "16.jpeg",
+        "label": "camel",
+        "sketch": "camel_9.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "10",
+        "text": "people riding [sketch] in the sunset",
+        "image": "19.jpeg",
+        "label": "camel",
+        "sketch": "camel_11.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "11",
+        "text": "[sketch] standing facing the camera",
+        "image": "21.jpeg",
+        "label": "camel",
+        "sketch": "camel_8.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "12",
+        "text": "[sketch] sitting beside a pyramid",
+        "image": "59.jpg",
+        "label": "camel",
+        "sketch": "camel_20.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "13",
+        "text": "[sketch] looking at the camera ",
+        "image": "60.jpeg",
+        "label": "camel",
+        "sketch": "camel_21.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "14",
+        "text": "boy looking at [sketch]",
+        "image": "61.jpg",
+        "label": "camel",
+        "sketch": "camel_100.jpg",
+        "split": "val"
+    },
+    {
+        "sample_num": "15",
+        "text": "empty [sketch] chairs and umbrella ",
+        "image": "34.jpg",
+        "label": "beach",
+        "sketch": "beach_0.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "16",
+        "text": "island [sketch]",
+        "image": "35.jpg",
+        "label": "beach",
+        "sketch": "beach_1.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "17",
+        "text": "people inside the [sketch]",
+        "image": "36.jpg",
+        "label": "beach",
+        "sketch": "beach_2.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "18",
+        "text": "three color shades of the [sketch]",
+        "image": "37.jpg",
+        "label": "beach",
+        "sketch": "beach_4.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "19",
+        "text": "boats in the middle of [sketch]",
+        "image": "38.jpg",
+        "label": "beach",
+        "sketch": "beach_3.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "20",
+        "text": "[sketch] view from above",
+        "image": "39.jpg",
+        "label": "beach",
+        "sketch": "beach_10.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "21",
+        "text": "island in the middle of [sketch]",
+        "image": "40.jpg",
+        "label": "beach",
+        "sketch": "beach_11.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "22",
+        "text": "[sketch] infront of a mountain",
+        "image": "41.jpg",
+        "label": "beach",
+        "sketch": "beach_12.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "23",
+        "text": "birds at the [sketch]",
+        "image": "42.jpg",
+        "label": "beach",
+        "sketch": "beach_14.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "24",
+        "text": "hotel [sketch] view",
+        "image": "43.jpg",
+        "label": "beach",
+        "sketch": "beach_17.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "25",
+        "text": "[sketch] surrounded by mountains",
+        "image": "44.jpeg",
+        "label": "beach",
+        "sketch": "beach_120.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "26",
+        "text": "a rocky [sketch] with a mountain range in the background.",
+        "image": "45.jpeg",
+        "label": "beach",
+        "sketch": "beach_229.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "27",
+        "text": "a boat in the middle of [sketch]",
+        "image": "46.jpeg",
+        "label": "beach",
+        "sketch": "beach_239.jpg",
+        "split": "val"
+    },
+    {
+        "sample_num": "28",
+        "text": "the [sketch]'s color is beautiful green and blue",
+        "image": "47.jpeg",
+        "label": "beach",
+        "sketch": "beach_220.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "29",
+        "text": "A beautiful [sketch] with white sand, crystal clear water, and a rocky shoreline.",
+        "image": "48.jpeg",
+        "label": "beach",
+        "sketch": "beach_200.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "30",
+        "text": "people kitesurfing at the [sketch]",
+        "image": "50.jpeg",
+        "label": "beach",
+        "sketch": "beach_201.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "31",
+        "text": "crystal blue [sketch]",
+        "image": "51.jpeg",
+        "label": "beach",
+        "sketch": "beach_199.jpg",
+        "split": "val"
+    },
+    {
+        "sample_num": "32",
+        "text": "[sketch] flying over farm and desert",
+        "image": "1.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_11.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "33",
+        "text": "colorful [sketch] flying",
+        "image": "2.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_5.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "34",
+        "text": "[sketch] flying over mountains",
+        "image": "3.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_12.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "35",
+        "text": "[sketch] landing",
+        "image": "5.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_111.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "36",
+        "text": "closeup of [sketch] flying",
+        "image": "6.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_121.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "37",
+        "text": "[sketch] flying during sunset",
+        "image": "9.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_63.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "38",
+        "text": "[sketch] high in the sky",
+        "image": "10.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_16.jpg",
+        "split": "val"
+    },
+    {
+        "sample_num": "39",
+        "text": "rainbow colored [sketch] landing",
+        "image": "12.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_17.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "40",
+        "text": "[sketch] are flying over the Valley of the Kings in Luxor, Egypt.",
+        "image": "13.jpg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_21.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "41",
+        "text": "A [sketch] floats over an ancient city. ",
+        "image": "62.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_201.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "42",
+        "text": "A [sketch] floats over an ancient city. ",
+        "image": "62.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_201.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "43",
+        "text": "[sketch] are lit up and ready to take off in the early morning sky.",
+        "image": "63.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_211.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "44",
+        "text": "A group of people are riding in a [sketch]",
+        "image": "64.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_221.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "45",
+        "text": "A [sketch] floats over the ancient Egyptian temple ",
+        "image": "65.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_231.jpg",
+        "split": "val"
+    },
+    {
+        "sample_num": "46",
+        "text": "historic stone [sketch] with a flag waving in the sky ",
+        "image": "24.jpeg",
+        "label": "castle",
+        "sketch": "castle_231.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "47",
+        "text": "Historic entrance to [sketch]",
+        "image": "29.jpeg",
+        "label": "castle",
+        "sketch": "castle_233.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "48",
+        "text": "A group of individuals walking around a [sketch]",
+        "image": "32.jpeg",
+        "label": "castle",
+        "sketch": "castle_21.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "49",
+        "text": "walking aisle to the [sketch]",
+        "image": "28.jpeg",
+        "label": "castle",
+        "sketch": "castle_221.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "50",
+        "text": "The [sketch] overlooking the sea.",
+        "image": "53.jpeg",
+        "label": "castle",
+        "sketch": "castle_201.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "51",
+        "text": "inside of a [sketch]",
+        "image": "55.jpeg",
+        "label": "castle",
+        "sketch": "castle_211.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "52",
+        "text": "long [sketch] with flying flag",
+        "image": "54.jpeg",
+        "label": "castle",
+        "sketch": "castle_213.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "53",
+        "text": "old [sketch] with a lot of windows and a big palm tree in front of it.",
+        "image": "56.jpeg",
+        "label": "castle",
+        "sketch": "castle_203.jpg",
+        "split": "train"
+    },
+    {
+        "sample_num": "54",
+        "text": "[sketch] surrounded by greenary",
+        "image": "57.jpeg",
+        "label": "castle",
+        "sketch": "castle_212.jpg",
+        "split": "val"
+    },
+    {
+        "sample_num": "55",
+        "text": "[sketch] standing infront of the pyramids",
+        "image": "18.jpeg",
+        "label": "horse",
+        "sketch": "horse_2.jpg",
+        "split": "val"
+    },
+    {
+        "sample_num": "56",
+        "text": "local guy riding [sketch]",
+        "image": "20.jpeg",
+        "label": "camel",
+        "sketch": "camel_2.jpg",
+        "split": "val"
+    },
+    {
+        "sample_num": "57",
+        "text": "man walking to a big [sketch]",
+        "image": "30.jpeg",
+        "label": "castle",
+        "sketch": "castle_2.jpg",
+        "split": "val"
+    },
+    {
+        "sample_num": "58",
+        "text": "[sketch] flying over river",
+        "image": "8.jpeg",
+        "label": "hot air balloon",
+        "sketch": "hotairballoon_6.jpg",
+        "split": "val"
+    }
+    
+
+    
+]
