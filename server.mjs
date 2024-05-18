@@ -19,6 +19,8 @@ const allowedOrigins = [
 const __dirname = dirname(__filename);
 const corsOptions = {
   origin: function (origin, callback) {
+
+      console.log(origin)
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
