@@ -18,7 +18,6 @@ const corsOptions = {
   optionsSuccessStatus: 200 // for legacy browser support
 };
 
-app.use(cors(corsOptions));
 console.log(__dirname);
 const app = express();
 const port = process.env.PORT ||3000;
