@@ -4,6 +4,17 @@ import strokes from "./stroke.js";
 import express from "express";
 import cors from "cors";
 import path from "path"
+
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+// Get the file path of the current module
+const __filename = fileURLToPath(import.meta.url);
+
+// Get the directory name of the current module
+const __dirname = dirname(__filename);
+
+console.log(__dirname);
 const app = express();
 const port = process.env.PORT ||3000;
 const model = loadModel("./model/model.json");
@@ -46,7 +57,7 @@ break;
   }
 console.log(final) 
 
-  res.sendFile(  "/home/omarikahw/Documents/GitHub/JSCSTBIR/data/images/images//"+(await query(await coco,final)).image);
+  res.sendFile( __dirname +"/data/images/images//"+(await query(await coco,final)).image);
 });
 
 app.listen(port);
