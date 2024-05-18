@@ -20,7 +20,7 @@ const corsOptions = {
 };
 console.log(__dirname);
 const app = express();
-const port = process.env.PORT ||3000;
+const port = process.env.PORT ||3001;
 const model = loadModel("./model/model.json");
 const coco = loadModel2();
 app.use(express.json());
@@ -31,9 +31,9 @@ app.use(cors({
 }));
 
 app.post("/predict", async (req, res) => {
-console.log("h")
-  const svgPathData = req.drawing;
-  var text = req.word;
+console.log(req)
+  const svgPathData = req.body.data.drawing;
+  var text = req.body.data.word;
     var minX = Infinity;
     var minY = Infinity;
     var maxX = -Infinity;
