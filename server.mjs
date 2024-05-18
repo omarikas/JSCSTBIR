@@ -11,14 +11,23 @@ import { fileURLToPath } from 'url';
 // Get the file path of the current module
 const __filename = fileURLToPath(import.meta.url);
 
+const allowedOrigins = [
+  'https://ngc4c1db-5500.uks1.devtunnels.ms', // Replace with your actual origin
+  'https://your-production-url.com'
+];
 // Get the directory name of the current module
 const __dirname = dirname(__filename);
 const corsOptions = {
-  origin: 'https://ngc4c1db-5500.uks1.devtunnels.ms', // replace with your front-end URL
-  optionsSuccessStatus: 200 // for legacy browser support
-};
-
-console.log(__dirname);
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      console.log(origin)
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  optionsSuccessStatus: 200 // For legacy browser support
+};console.log(__dirname);
 const app = express();
 const port = process.env.PORT ||3000;
 const model = loadModel("./model/model.json");
