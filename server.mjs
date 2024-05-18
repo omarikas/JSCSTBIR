@@ -18,8 +18,6 @@ const corsOptions = {
   origin: 'https://example-frontend.com', // replace with your front-end URL
   optionsSuccessStatus: 200 // for legacy browser support
 };
-
-app.use(cors(corsOptions));
 console.log(__dirname);
 const app = express();
 const port = process.env.PORT ||3000;
