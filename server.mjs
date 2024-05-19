@@ -33,7 +33,7 @@ app.use(cors({
 
 
 app.get("/predict",(req,res)=>{
-res.sendFile( __dirname +"/data/images/images/1.jpg")
+res.sendFile( __dirname +"/data/images/images/1.jepg")
 
 } )
 
