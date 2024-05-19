@@ -30,6 +30,26 @@ app.use(cors({
   maxAge: 3600 // set max age in seconds
 }));
 
+
+
+app.get("/predict",(req,res)=>{
+res.sendFile( __dirname +"/data/images/images/1.jpg")
+
+} )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.post("/predict", async (req, res) => {
 console.log("h")
   const svgPathData = req.body.drawing;
